@@ -6,12 +6,10 @@ function App() {
   const [showBonus, setShowBonus] = useState(false);
 
   return (
-    // "p-10" antaa tilaa reunoille, "flex gap-1" laittaa napit vierekkäin pienellä välillä
     <div className="p-10">
       <h1 className="text-3xl font-bold mb-6">Modaalin testaus</h1>
 
       <div className="flex gap-1">
-        {/* Sininen nappi */}
         <button 
           onClick={() => setShowInfo(true)}
           className="bg-[#0a369d] text-gray-300 px-6 py-3 rounded-l-md font-semibold hover:brightness-110"
@@ -19,7 +17,6 @@ function App() {
           Näytä tiedot
         </button>
 
-        {/* Vihreä nappi mustalla reunuksella */}
         <button 
           onClick={() => setShowBonus(true)}
           className="bg-[#004d1a] text-gray-300 px-6 py-3 rounded-r-md border-2 border-black font-semibold hover:brightness-110"
@@ -28,7 +25,6 @@ function App() {
         </button>
       </div>
 
-      {/* Modaalit pysyvät samoina */}
       <Modal isOpen={showInfo} onClose={() => setShowInfo(false)}>
         <p>Tämä on ensimmäinen modaali!</p>
       </Modal>
