@@ -2,45 +2,39 @@ import { useState } from 'react';
 import Modal from './components/Modal';
 
 function App() {
-  // State for two different modal triggers
   const [showInfo, setShowInfo] = useState(false);
   const [showBonus, setShowBonus] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-gray-100">
-      <h1 className="text-2xl font-bold mb-4">React Reusable Modal Task</h1>
+    // "p-10" antaa tilaa reunoille, "flex gap-1" laittaa napit vierekkäin pienellä välillä
+    <div className="p-10">
+      <h1 className="text-3xl font-bold mb-6">Modaalin testaus</h1>
 
-      {/* Trigger Button 1 */}
-      <button 
-        onClick={() => setShowInfo(true)}
-        className="px-6 py-3 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition"
-      >
-        Show Details
-      </button>
+      <div className="flex gap-1">
+        {/* Sininen nappi */}
+        <button 
+          onClick={() => setShowInfo(true)}
+          className="bg-[#0a369d] text-gray-300 px-6 py-3 rounded-l-md font-semibold hover:brightness-110"
+        >
+          Näytä tiedot
+        </button>
 
-      {/* Trigger Button 2 */}
-      <button 
-        onClick={() => setShowBonus(true)}
-        className="px-6 py-3 bg-emerald-600 text-white rounded-xl shadow-md hover:bg-emerald-700 transition"
-      >
-        Surprise Me
-      </button>
+        {/* Vihreä nappi mustalla reunuksella */}
+        <button 
+          onClick={() => setShowBonus(true)}
+          className="bg-[#004d1a] text-gray-300 px-6 py-3 rounded-r-md border-2 border-black font-semibold hover:brightness-110"
+        >
+          Näytä tiedot
+        </button>
+      </div>
 
-      {/* Modal 1: Basic Info */}
+      {/* Modaalit pysyvät samoina */}
       <Modal isOpen={showInfo} onClose={() => setShowInfo(false)}>
-        <h2 className="text-xl font-semibold mb-2">Information</h2>
-        <p className="text-gray-600">This is content injected inside the modal!</p>
+        <p>Tämä on ensimmäinen modaali!</p>
       </Modal>
 
-      {/* Modal 2: Bonus Content */}
       <Modal isOpen={showBonus} onClose={() => setShowBonus(false)}>
-        <div className="text-center">
-          <span className="text-4xl">🎉</span>
-          <h2 className="text-xl font-bold mt-2">Dynamic Reuse!</h2>
-          <p className="text-gray-500 mt-2">
-            The same component logic, but totally different HTML content.
-          </p>
-        </div>
+        <p>Tämä on toinen modaali!</p>
       </Modal>
     </div>
   );
